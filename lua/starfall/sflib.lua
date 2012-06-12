@@ -332,6 +332,18 @@ function SF.DeserializeCode(tbl)
 	return sources, tbl.mainfile
 end
 
+--- Checks is this player allowed to spawn processor / screen
+-- @param ply Player to check
+-- @return True if it can
+function SF.CanSpawn(ply)
+	if not SF.Permissions:checkPermission("Everyone can spawn") and not ply:IsAdmin() then
+		ply:ChatPrint("We're sorry but Starfall is in early development, so only admins are allowed to use this.")
+		return false
+	end
+
+	return true
+end
+
 -- Library loading
 if SERVER then
 	local l

@@ -81,6 +81,7 @@ if SERVER then
 	-- (Server) General function to spawn a screen
 	function MakeSFScreen(ply, pos, ang, model)
 		if not ply:CheckLimit("wire_starfall_screens") then return nil end
+		if not SF.CanSpawn(ply) then return nil end
 
 		local sf = ents.Create("gmod_wire_starfall_screen")
 		if not IsValid(sf) then return nil end
