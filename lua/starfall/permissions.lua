@@ -51,3 +51,11 @@ end
 function SF.Permissions:checkPermission(name)
 	return self.permissions[name].value
 end
+
+--- Simple permission which allows only admins to spawn processors / screens
+SF.Permissions:registerPermission({
+	name = "Everyone can spawn",
+	desc = "Allows spawning processors and screens by everyone (otherwise only by admins)",
+	level = 2,
+	value = false,
+})
